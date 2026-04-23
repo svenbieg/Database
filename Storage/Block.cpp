@@ -2,6 +2,9 @@
 // Block.cpp
 //===========
 
+// ONFI 2.2 - Memory Organization
+// A block is the smallest erasable unit of data
+
 #include "Block.h"
 
 
@@ -38,7 +41,7 @@ return Object::CreateEx<Block, Volume*>(page_size, 4, volume, block);
 
 SIZE_T Block::Available()
 {
-return m_Size-m_Position;
+return m_Size-(m_Position+m_Written);
 }
 
 SIZE_T Block::Read(VOID* buf, SIZE_T size)
