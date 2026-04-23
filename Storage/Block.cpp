@@ -41,7 +41,7 @@ return Object::CreateEx<Block, Volume*>(page_size, 4, volume, block);
 
 SIZE_T Block::Available()
 {
-return m_Size-(m_Position+m_Written);
+return m_Size-m_Position;
 }
 
 SIZE_T Block::Read(VOID* buf, SIZE_T size)
