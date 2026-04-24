@@ -1,7 +1,7 @@
 <h1>Database</h1>
 
 <p>
-Construction-site of a node-based ONFI 2.2 storage solution.<br />
+Construction-site of a node-based <a href="https://onfi.org/files/onfi_2_2-gold.pdf">ONFI 2.2</a> storage solution.<br />
 </p>
 <br />
 
