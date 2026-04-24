@@ -14,8 +14,6 @@
 
 #include "MemoryHelper.h"
 
-using namespace Storage::Streams;
-
 
 //===========
 // Namespace
