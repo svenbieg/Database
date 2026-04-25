@@ -35,7 +35,11 @@ public:
 	friend Object;
 
 	// Con-/Destructors
-	static Handle<Block> Create(Volume* Volume, UINT Block);
+	static Handle<Block> Create(Volume* Volume, UINT Block=0, UINT Position=0);
+
+	// Common
+	VOID Seek(UINT Position);
+	VOID Seek(UINT Block, UINT Position);
 
 	// Input-Stream
 	SIZE_T Available()override;
@@ -47,11 +51,12 @@ public:
 
 private:
 	// Con-/Destructors
-	Block(Volume* Volume, UINT Block, BYTE* Buffer, SIZE_T Size);
+	Block(BYTE* Buffer, SIZE_T Size, Volume* Volume, UINT Block, UINT Position);
 
 	// Common
 	BYTE* m_Buffer;
 	UINT64 m_Offset;
+	UINT m_Page;
 	UINT m_PageSize;
 	UINT m_Position;
 	UINT m_Size;
