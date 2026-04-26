@@ -1,11 +1,15 @@
 <h1>Database</h1>
 
+> [!NOTE]
+> Under construction.
+
 <p>
-Construction-site of a node-based <a href="https://onfi.org/files/onfi_2_2-gold.pdf">ONFI 2.2</a> storage solution.<br />
+This is a <a href="https://github.com/svenbieg/Clusters">Cluster</a>-based storage solution
+for <a href="https://onfi.org/files/onfi_2_2-gold.pdf">ONFI</a>-devices, providing an XML-like interface.<br />
 </p>
 <br />
 
-<img src="https://github.com/user-attachments/assets/bf3837c5-efc4-4e23-a991-17cae9021b9f" width="500" /><br />
+<img src="https://github.com/user-attachments/assets/b48e402e-5c09-4d0f-a77f-38048699f40d" width="500" /><br />
 <br />
 
 <p>
