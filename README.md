@@ -9,5 +9,5 @@ Construction-site of a node-based <a href="https://onfi.org/files/onfi_2_2-gold.
 <br />
 
 <p>
-You can find some additional information <a href="https://github.com/svenbieg/Heap">here</a>.
+You can find some additional information in the <a href="https://github.com/svenbieg/Database/wiki">Wiki</a>.
 </p>
