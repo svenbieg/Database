@@ -29,17 +29,16 @@ namespace Storage {
 VOID WearLeveling::Erase(UINT64 offset, UINT size)
 {
 UINT64 redir=Redirect(offset);
-while(1)
+try
 	{
-	try
-		{
-		m_Volume->Erase(redir, size);
-		}
-	catch(ErrorException e)
-		{
-		redir=Spare(offset);
-		}
+	m_Volume->Erase(redir, size);
+	return;
 	}
+catch(ErrorException e)
+	{
+	redir=Spare(offset);
+	}
+m_Volume->Erase(redir, size);
 }
 
 UINT WearLeveling::GetBlockSize()
@@ -72,33 +71,32 @@ if(size>m_Size)
 VOID WearLeveling::Write(UINT64 offset, VOID const* buf, SIZE_T size)
 {
 UINT64 redir=Redirect(offset);
-while(1)
+try
 	{
-	try
-		{
-		m_Volume->Write(redir, buf, size);
-		}
-	catch(ErrorException e)
-		{
-		UINT64 spare=Spare(offset);
-		UINT block_pos=redir%m_BlockSize;
-		if(block_pos>0)
-			{
-			UINT src=redir/m_BlockSize;
-			UINT dst=spare/m_BlockSize;
-			auto buf=Buffer::Create(m_PageSize);
-			auto buf_ptr=buf->Begin();
-			for(UINT pos=0; pos<block_pos; )
-				{
-				UINT copy=TypeHelper::Min(block_pos-pos, m_PageSize);
-				m_Volume->Read(redir+pos, buf_ptr, copy);
-				m_Volume->Write(spare+pos, buf_ptr, copy);
-				pos+=copy;
-				}
-			}
-		redir=spare;
-		}
+	m_Volume->Write(redir, buf, size);
+	return;
 	}
+catch(ErrorException e)
+	{
+	UINT64 spare=Spare(offset);
+	UINT block_pos=redir%m_BlockSize;
+	if(block_pos>0)
+		{
+		UINT src=redir/m_BlockSize;
+		UINT dst=spare/m_BlockSize;
+		auto buf=Buffer::Create(m_PageSize);
+		auto buf_ptr=buf->Begin();
+		for(UINT pos=0; pos<block_pos; )
+			{
+			UINT copy=TypeHelper::Min(block_pos-pos, m_PageSize);
+			m_Volume->Read(redir+pos, buf_ptr, copy);
+			m_Volume->Write(spare+pos, buf_ptr, copy);
+			pos+=copy;
+			}
+		}
+	redir=spare;
+	}
+m_Volume->Write(redir, buf, size);
 }
 
 
