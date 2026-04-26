@@ -9,7 +9,6 @@
 // Using
 //=======
 
-#include "Storage/Block.h"
 #include "Storage/Buffer.h"
 
 
@@ -114,23 +113,24 @@ m_Spare(spare),
 m_Volume(volume)
 {
 m_Size-=m_Spare*m_BlockSize;
-auto block=Block::Create(volume, 0);
+UINT redir_size=m_Spare*2*sizeof(UINT);
+auto buf=Buffer::Create(redir_size);
+auto entries=(UINT*)buf->Begin();
+m_Volume->Read(0, entries, redir_size);
 SIZE_T pos=0;
-UINT entry[2];
-while(m_Count<=m_Spare)
+for(UINT pos=0; pos<m_Spare; pos++)
 	{
-	pos+=block->Read(entry, 2*sizeof(UINT));
-	if(entry[0]==-1)
+	if(entries[pos]==-1)
 		break;
-	if(entry[1]!='RDIR')
+	if(entries[pos+1]!='RDIR')
 		{
-		if(pos>2*sizeof(UINT))
+		if(pos>0)
 			throw AbortException();
 		volume->Erase(0, m_BlockSize);
 		return;
 		}
-	m_Redirect.set(entry[0], m_Count++);
-	m_Position=(UINT)pos;
+	m_Redirect.set(entries[pos], m_Count++);
+	m_Position=pos*2*sizeof(UINT);
 	}
 }
 
