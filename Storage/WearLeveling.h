@@ -27,6 +27,9 @@ namespace Storage {
 class WearLeveling: public Volume
 {
 public:
+	// Friends
+	friend Object;
+
 	// Con-/Destructors
 	static inline Handle<WearLeveling> Create(Volume* Volume, UINT Spare) { return Object::Create<WearLeveling>(Volume, Spare); }
 
