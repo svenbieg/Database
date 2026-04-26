@@ -21,6 +21,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Storage\Block.cpp">
       <Filter>Storage</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Storage\WearLeveling.cpp">
+      <Filter>Storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Storage\Database\Database.h">
@@ -39,5 +42,8 @@
       <Filter>Storage</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)IntegerClasses.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Storage\WearLeveling.h">
+      <Filter>Storage</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

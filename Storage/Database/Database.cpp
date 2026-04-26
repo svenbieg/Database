@@ -5,13 +5,6 @@
 #include "Database.h"
 
 
-//=======
-// Using
-//=======
-
-using namespace Concurrency;
-
-
 //===========
 // Namespace
 //===========
@@ -29,7 +22,6 @@ m_Volume(volume)
 {
 if(create==FileCreateMode::CreateNew)
 	{
-
 	}
 }
 
