@@ -2,8 +2,8 @@
 // Block.h
 //=========
 
-// ONFI 2.2 - Memory Organization
-// A block is the smallest erasable unit of data
+// Copyright 2026, Sven Bieg (svenbieg@outlook.de)
+// https://github.com/svenbieg/Database
 
 #pragma once
 
