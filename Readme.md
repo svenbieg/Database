@@ -5,7 +5,7 @@
 
 <p>
 This is a <a href="https://github.com/svenbieg/Clusters">Cluster</a>-based storage solution
-for <a href="https://onfi.org/files/onfi_2_2-gold.pdf">ONFI</a>-devices, providing an XML-like interface.<br />
+for <a href="https://onfi.org/files/onfi_2_2-gold.pdf">ONFI</a>-devices, providing an XML interface.<br />
 </p>
 <br />
 
