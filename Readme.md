@@ -9,7 +9,7 @@ for <a href="https://onfi.org/files/onfi_2_2-gold.pdf">ONFI</a>-devices, providi
 </p>
 <br />
 
-<img src="https://github.com/user-attachments/assets/4386898c-e6ad-4855-8145-e4f87fe45fb2" /><br />
+<img src="https://github.com/user-attachments/assets/16f5f6e7-af1a-41a8-a10c-86fde1dbe9f7" /><br />
 <br />
 
 <p>
